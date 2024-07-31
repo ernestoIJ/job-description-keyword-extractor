@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from text_processing import preprocess_text, extract_keywords
 import os
 
@@ -19,6 +19,9 @@ def index():
 @app.route('/generate_keywords', methods=['GET'])
 def generate_keywords():
     descriptions = session.get('descriptions', [])
+    if not descriptions:
+        flash("No job descriptions provided.")
+        return redirect(url_for('index'))
     preprocess_texts = [preprocess_text(desc) for desc in descriptions]
     keywords = extract_keywords(preprocess_texts, num_keywords=15)
     session.pop('descriptions', None) # Clear the session
