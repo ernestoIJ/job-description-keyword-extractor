@@ -18,4 +18,4 @@ python app.py
 ```
 
 ## Demo
-
+Check out the demo video of our project here: [View Demo](https://youtu.be/k2NWri70Od0)
