@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keywords Generated</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Extracted Keywords</h1>
+    <ul>
+        {% for keyword in keywords %}
+        <li>{{ keyword }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Start Over</a>
+</body>
+</html>
